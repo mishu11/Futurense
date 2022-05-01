@@ -1,0 +1,128 @@
+Big Data
+capturing ,storage,process,visualize
+storage componenets of hadoop is HDFS(it is a disk)(Disk based process technologies)
+Process----------------------- is Map Reduce(Hype,impala,pig)--> Java
+
+Inmemory compututation Engine--> spark is used...spark is under process
+
+
+Data capturing tools
+Sqoop(it helps in exporting and importing the data)
+
+for streaming data,for live action -->Flume
+
+
+Hdfs is helps us to sequential data
+Rdbms helps us to see the data in random access
+
+Nosql--> is used for distribution data--->Random access capability
+
+
+Nosql types-->Mongo db,ksandra,Hbos,couched
+
+creating control sequence-->work flow....after every 1 hour we need to run we need workflow schedular(airflow,uzzi)
+
+How the process gonna happen in Distribution data+
+
+
+
+
+commodity hardware--> it is sum of x  computers (x is variable)
+
+compututation Intensive--> Moving data  near to core(c.p.u)
+
+
+DATA INTENSIVE-->moving core near to data
+
+
+SPARK--->In memory computation Engine--> It does not have storage in it and it does not have any software to manage multiple computers
+
+Hadoop-->HDFS,Map Reduce-->Disk based Process--->yarn is same as clustered,MESOS,NOSQL DATABASE,KUBERNETES
+
+clustered manager--> someone who manages distributed envirornment-->SPARK
+
+SPARK GRAPHICS,SPARK STREAMING,SPARKR,SPARKSQL
+
+
+HOW SPARKS WORKS INTERNALLY??
+it is a kind of distributed RAM---->16*100pc(1600GB)
+
+i want to computation fast??
+
+Dag(Direct Asyclick graph) is collection of RDDs
+
+Streaming 
+* Apache Kafka
+* ------ Spark streaming
+* Flume
+* Kstream(k=kafka)
+* storm 
+
+kafka is distributing messages system.
+
+
+
+
+
+
+
+
+
+
+Read about ETL
+
+I want you to prepare DS
+various algorithemic prepare
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

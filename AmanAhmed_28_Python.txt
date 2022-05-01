@@ -1,0 +1,177 @@
+# Online Python compiler (interpreter) to run Python online.
+# Write Python 3 code in this online editor and run it.
+import datetime
+import datetime
+currentDate=datetime.date.today()
+print(currentDate.strftime('%d %b %Y'))
+
+products=[]
+dates=[]
+expiry_dates_of_products=[]
+need_to_sell=[]
+number_of_products=int(input('How many products needs clearence sale!\n'))
+for i in range(1,number_of_products+1):
+    item=input("Enter the name of items\n")
+    products.append(item)
+    year = int(input('Enter a year'))
+    month = int(input('Enter a month'))
+    day = int(input('Enter a day'))
+    date1 = datetime.date(year, month, day)
+    dates.append(date1)
+
+# print(abs(date1-currentDate))
+# date2 = datetime.date(int(input(),int(input(), int(input())
+# print(date2)
+
+
+for i,j in zip(dates,products):
+    if i-currentDate<min_days:
+        need_to_sell.append(j)
+print(need_to_sell)
+# final_list=zip(products,dates)
+# print(list(final_list))
+
+
+#PANDAS
+
+import pandas as pd
+import numpy as np
+
+
+items_info=pd.DataFrame({
+        'items':['Tv','Pc','Laptop','Mobiles','basketBall'],
+        'price':[50000,45000,60000,25000,400]
+        }
+        )
+
+new_food=pd.read_csv('food.csv')
+
+#it will show as 1st 5 columns
+print(new_food.head())
+print("==========================================")
+print(new_food.describe())#show to info
+print("==========================================")
+#It will give us a information of the
+print(new_food.info())
+print('========================================')
+print(items_info['items'])
+
+#This will give a sample 
+print(items_info.sample())
+
+print("============================================")
+
+#We can delete the function by using drop()
+
+sir=items_info['items'].head()
+condition=items_info.price>50000
+
+#WHERE CONDITION
+game=items_info.where(condition,inplace=True)
+print(items_info)
+
+print("---------------------------------------------------------------------------------")
+
+#to read json file
+#json_file=pd.read_json('hrdata.json')
+
+#creating dataframe with help of numpy
+array=np.array([[2,6],[7,8]])
+print(array)
+
+#i am going to create dataframe with help of list
+lst=['apple','orange','mango','sugarcane']
+fruits=pd.DataFrame(lst,columns=["Fruits"])
+print(fruits)
+
+
+
+#HANDLING NULL VALUES
+
+students = [ ('jack', 34, 'Sydeny' , 'Australia') ,
+             ('Riti', 30, 'Delhi' , 'India' ) ,
+             ('Vikas', 31, 'Mumbai' , 'India' ) ,
+             ('Neelu', 32, 'Bangalore' , 'India' ) ,
+             ('John', 16, 'New York' , 'US') ,
+             ('Mike', 17, 'las vegas' , 'US')  ]
+
+
+
+dff = pd.DataFrame(students,
+        columns = ['Name' , 'Age', 'City' , 'Country'], index=['a', 'b', 'c' , 'd' , 'e' , 'f'])
+
+print(dff)
+
+#List comprehension
+'''
+It is a very concise way
+ to create a new list by performing an
+ operation on each item in the existing list.
+ List comprehension is considerably faster
+ than processing a list using the for loop.
+'''
+
+#list without list comprehension
+even_nums=[]
+for x in range(21):
+    if x%2==0:
+        even_nums.append(x)
+print(even_nums)
+
+#create a list of even with list comprehenssion
+even_nums=[x for x in range(21) if x%2==0]
+print(even_nums)
+
+squares=[x*x for x in range(11)]
+print(squares)
+
+
+###object oriented programming
+
+class ParleG:
+    def __init__(self,wheatflour,cover):
+        #instance variable
+        #print("BISCUITS")
+        self.wheatflour=wheatflour
+        self.cover=cover
+
+class Oreo(ParleG):
+    def __init__(self,wheatflour,cover,cream,nuts):
+        super().__init__(wheatflour,cover)
+        self.cream=cream
+        self.nuts=nuts
+    def view(self):
+        print(self.wheatflour)
+        print(self.cover)
+        print(self.cream)
+        print(self.nuts)
+class Company(Oreo,ParleG):
+    def __init__(self,wheatflour,cover,cream,nuts,companyname,companyfounder):
+        super().__init__(wheatflour,cover,cream,nuts)
+        self.companyname=companyname
+        self.companyfounder=companyfounder
+    def view(self):      
+        print(self.companyname)
+        print(self.companyfounder)
+        
+
+p1=Oreo("wheatflour","orange","choclate","Pista")
+p1.view()    
+
+c1=Company("wheatflour","orange","choclate","Pista","Nestle","Henri Nestle")
+c1.view()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
