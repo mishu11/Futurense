@@ -1,0 +1,70 @@
+
+
+
+
+-- 1> FIND OUT ALL THE EMPLOYEES WHO'S SALARY IS GREATER THAN 10000
+	
+	select *from emp_details e join salary s on e.eid=s.eid where s.AMT>10000;
+
+-- 2> FIND OUT TOTALLY EMPLOYEES ARE WORKING IN EVERY LOCATION AND THE RESULT IN DESC OF THE COUNT
+
+	select l.loc,count(*) as total_emp from employee e join location l on e.pin = l.pin join emp_details e1 on e1.eid=e.eid group by l.loc order by total_emp desc;
+
+-- 3> FIND OUT ALLTHE EMPLOYEES THAT ARE ON THE BEANCH
+	
+	select *from employee where proj_id is null;
+
+-- 4> FIND OUT HOW MANY EMPLOYEES ARE ASSOCIATED TO A CLIENT BUT NOT ASSOCIATED TO ANY PROJECT
+	
+	select count(*) from employee where proj_id is null and client_id is not null;
+
+-- 5> CONTINUE TO THE 4TH AND THE SALARY IS GREATER THAN 10000
+	
+	select *from employee e join salary s on e.eid=s.eid where proj_id is null and client_id is not null and s.AMT>10000;
+
+-- 6> FIND OUT DISTINCT CLIENT NAMES
+
+	select distinct client_name from client_project;	
+
+-- 7> FIND OUT EMPLOYEES WHO HAVE THERE DOB THIS MONTH
+	
+	select * from emp_details where month(curdate())=month(DOB);
+
+-- 8> NAMES OF THE EMPLOYEES WHO ARE WORKING FOR CLIENT NAMED WALLMART
+
+	select e1.ename from emp_details e1 join employee e on e1.eid=e.eid join client_project c on e.client_id=c.client_id 
+	where client_name='WALLMART';
+
+
+
+
+
+-- 9> FIND OUT MAXIMUM NO OF EMPLOYEES THAT ARE WORKING FOR A CLIENT IN WHICH LOCATION
+
+
+	select count(temp.eid) as total_emp,temp.client_id,temp.loc from
+	(select  distinct e.eid,c.client_id,l.loc from employee e join client_project c on e.client_id=c.client_id join location l on l.pin=e.pin 
+	order by e.eid) temp group by temp.client_id,temp.loc order by total_emp desc limit 1;
+
+
+
+
+	
+-- 10> FIND OUT WHAT IS THE SALARIED PAID BY EACH CLIENT
+	
+	select cp.client_name,sum(s.AMT) from employee e join salary s on e.eid=s.eid join client_project cp on cp.client_id=e.client_id
+	group by cp.client_name;
+
+
+
+
+
+
+
+
+-- 11> -- INSERT SOME RECORD IN THE SALARY IN THE MONTHS OF 2022 -05-01, 2022-03-01
+		-- 11 CONTINUE GIVE DIFFERENT SALARY FOR SAME EMPLOYEE IN PER MONTH --Q>> FIND OUT THE AVG SALARY AND
+        -- EMPLOYEE NAME AND LOC OF ALL THE EMPLOYEES FOR 3 MOTHNS
+
+	select e.ename,avg(salary),l.loc from employee e join salary s on e.eid=s.eid join location l l.pin=e.pin join emp_details e1 on 
+	e1.eid=e.eid group by e.ename;
